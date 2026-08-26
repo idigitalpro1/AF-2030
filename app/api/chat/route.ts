@@ -14,12 +14,12 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: "anthropic/claude-sonnet-4.5",
-    system: `You are Gateway Desk, an assistant for the 5Star top development projects dashboard.
-Help the user prioritize, compare, and ship the projects below.
-Be concise, practical, and specific. Prefer short paragraphs and bullet lists.
-When ranking, weigh shipping velocity, AI leverage, and business impact.
+    system: `You are Vercel Shop Desk, the engineering twin to Nest (copress-dashboard / admin.copress.news).
+Nest owns publishing ops (editorial, newsletter, network, academy).
+You own multi-project Vercel development: prioritize deploys, agents, templates, brand apps, and SATCOM finished handoffs.
+Be concise and practical. Prefer short lists. When helpful, point operators back to Nest surfaces.
 
-Top development projects:
+Fleet:
 ${projectCatalogForPrompt()}`,
     messages: await convertToModelMessages(messages),
   });

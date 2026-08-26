@@ -30,11 +30,11 @@ export function GatewayAssistant() {
   }
 
   return (
-    <section className="assistant" aria-label="AI Gateway assistant">
+    <section className="assistant" aria-label="Shop desk AI assistant">
       <header className="assistant__head">
         <div>
           <p className="eyebrow">AI Gateway</p>
-          <h2>Ask about the stack</h2>
+          <h2>Shop desk</h2>
         </div>
         <span className="assistant__pulse" aria-hidden />
       </header>
@@ -42,8 +42,8 @@ export function GatewayAssistant() {
       <div className="assistant__thread" role="log" aria-live="polite">
         {messages.length === 0 ? (
           <p className="assistant__empty">
-            Ask which projects to ship next, compare templates, or draft a
-            launch plan for today&apos;s AI Gateway builds.
+            Ask which Vercel projects to ship next, how they pair with Nest /
+            admin.copress.news, or what belongs in SATCOM finished.
           </p>
         ) : (
           messages.map((message) => (
@@ -52,7 +52,7 @@ export function GatewayAssistant() {
               className={`bubble bubble--${message.role}`}
             >
               <span className="bubble__role">
-                {message.role === "user" ? "You" : "Gateway"}
+                {message.role === "user" ? "You" : "Shop"}
               </span>
               <p>{messageText(message)}</p>
             </article>
@@ -67,9 +67,9 @@ export function GatewayAssistant() {
 
       <div className="assistant__prompts">
         {[
-          "Rank the top 3 to ship this week",
-          "What should we do with today's templates?",
-          "Compare vibe-coding-platform vs chatbot",
+          "What should ship next for Nest?",
+          "List publishing vs agent projects",
+          "What belongs in SATCOM finished?",
         ].map((prompt) => (
           <button
             key={prompt}
@@ -86,14 +86,14 @@ export function GatewayAssistant() {
       </div>
 
       <form className="assistant__form" onSubmit={onSubmit}>
-        <label className="sr-only" htmlFor="gateway-prompt">
-          Message Gateway Desk
+        <label className="sr-only" htmlFor="shop-prompt">
+          Message Shop Desk
         </label>
         <input
-          id="gateway-prompt"
+          id="shop-prompt"
           value={input}
           onChange={(event) => setInput(event.target.value)}
-          placeholder="Ask Gateway Desk…"
+          placeholder="Ask Shop Desk…"
           autoComplete="off"
         />
         {busy ? (

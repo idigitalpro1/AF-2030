@@ -1,50 +1,75 @@
 import { GatewayAssistant } from "@/components/gateway-assistant";
+import { NestBridge } from "@/components/nest-bridge";
 import { ProjectBoard } from "@/components/project-board";
-import { SATCOM_FINISHED, TOP_DEV_PROJECTS } from "@/lib/projects";
+import { SATCOM_FINISHED, SHOP_PROJECTS } from "@/lib/projects";
 
 export default function Home() {
-  const createdToday = TOP_DEV_PROJECTS.filter((p) => p.createdLabel === "Today")
-    .length;
-  const liveCount = TOP_DEV_PROJECTS.filter((p) => p.status === "live").length;
-  const finishedCount = SATCOM_FINISHED.length;
+  const live = SHOP_PROJECTS.filter((p) => p.status === "live").length;
+  const agents = SHOP_PROJECTS.filter((p) => p.lane === "agents").length;
+  const publishing = SHOP_PROJECTS.filter((p) => p.lane === "publishing").length;
 
   return (
-    <main className="shell">
-      <header className="hero">
-        <p className="eyebrow">Vercel AI Gateway · Templates</p>
-        <h1 className="brand">
-          Gateway <span>Desk</span>
-        </h1>
-        <p className="lede">
-          Top development projects across the 5Star workspace — including AI
-          Gateway templates created today — with finished cards filed into
-          SATCOM.
-        </p>
-        <div className="meta-row">
-          <span className="meta">
-            <strong>{TOP_DEV_PROJECTS.length}</strong> ranked builds
-          </span>
-          <span className="meta">
-            <strong>{createdToday}</strong> created today
-          </span>
-          <span className="meta">
-            <strong>{liveCount}</strong> live
-          </span>
-          <span className="meta">
-            <strong>{finishedCount}</strong> SATCOM finished
-          </span>
+    <div className="frame">
+      <header className="topbar">
+        <div className="topbar__mast">
+          <span className="t-name">copress</span>
+          <span className="t-tld">.news</span>
+          <span className="t-pipe">|</span>
+          <span className="t-section">Vercel Shop Desk</span>
+        </div>
+        <div className="topbar__center">5Star team · complements Nest</div>
+        <div className="topbar__right">
+          <a
+            className="topbar__link"
+            href="https://copress-dashboard.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Nest
+          </a>
         </div>
       </header>
 
-      <div className="layout">
-        <ProjectBoard />
-        <GatewayAssistant />
-      </div>
+      <main className="shell">
+        <section className="hero">
+          <p className="eyebrow">Multi-project Vercel shop</p>
+          <h1 className="brand">
+            Development <em>Desk</em>
+          </h1>
+          <p className="lede">
+            Engineering twin to Nest / admin.copress.news — rank deploys, agents,
+            templates, and brand apps across the 5Star Vercel fleet, then file
+            finished work into SATCOM.
+          </p>
+          <div className="meta-row">
+            <span className="meta">
+              <strong>{SHOP_PROJECTS.length}</strong> shop projects
+            </span>
+            <span className="meta">
+              <strong>{publishing}</strong> publishing
+            </span>
+            <span className="meta">
+              <strong>{agents}</strong> agents
+            </span>
+            <span className="meta">
+              <strong>{live}</strong> live
+            </span>
+            <span className="meta">
+              <strong>{SATCOM_FINISHED.length}</strong> SATCOM finished
+            </span>
+          </div>
+        </section>
 
-      <p className="foot">
-        Built on the AI Gateway chat pattern from today&apos;s vercal / eve
-        templates. Model traffic routes through Vercel AI Gateway.
-      </p>
-    </main>
+        <div className="layout">
+          <div className="layout__main">
+            <ProjectBoard />
+          </div>
+          <div className="layout__side">
+            <NestBridge />
+            <GatewayAssistant />
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }
