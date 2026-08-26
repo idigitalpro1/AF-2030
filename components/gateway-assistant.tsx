@@ -1,6 +1,7 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { useState, type FormEvent } from "react";
 
 function messageText(message: {
@@ -17,7 +18,9 @@ function messageText(message: {
 }
 
 export function GatewayAssistant() {
-  const { messages, sendMessage, status, error, stop } = useChat();
+  const { messages, sendMessage, status, error, stop } = useChat({
+    transport: new DefaultChatTransport({ api: "/dev/api/chat" }),
+  });
   const [input, setInput] = useState("");
   const busy = status === "submitted" || status === "streaming";
 
