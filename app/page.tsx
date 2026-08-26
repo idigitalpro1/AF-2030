@@ -1,11 +1,12 @@
 import { GatewayAssistant } from "@/components/gateway-assistant";
 import { ProjectBoard } from "@/components/project-board";
-import { TOP_DEV_PROJECTS } from "@/lib/projects";
+import { SATCOM_FINISHED, TOP_DEV_PROJECTS } from "@/lib/projects";
 
 export default function Home() {
   const createdToday = TOP_DEV_PROJECTS.filter((p) => p.createdLabel === "Today")
     .length;
   const liveCount = TOP_DEV_PROJECTS.filter((p) => p.status === "live").length;
+  const finishedCount = SATCOM_FINISHED.length;
 
   return (
     <main className="shell">
@@ -16,8 +17,8 @@ export default function Home() {
         </h1>
         <p className="lede">
           Top development projects across the 5Star workspace — including AI
-          Gateway templates created today — with an assistant that helps you
-          prioritize what ships next.
+          Gateway templates created today — with finished cards filed into
+          SATCOM.
         </p>
         <div className="meta-row">
           <span className="meta">
@@ -28,6 +29,9 @@ export default function Home() {
           </span>
           <span className="meta">
             <strong>{liveCount}</strong> live
+          </span>
+          <span className="meta">
+            <strong>{finishedCount}</strong> SATCOM finished
           </span>
         </div>
       </header>
