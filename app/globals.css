@@ -150,6 +150,9 @@ a {
 
 .topbar__right {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .topbar__link {
@@ -941,4 +944,112 @@ a {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.auth-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-status__email {
+  max-width: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.auth-status__signout {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.auth-status__signout:hover {
+  color: var(--gold-pale);
+  border-color: var(--border-hi);
+}
+
+.login-frame {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.login-card {
+  width: min(420px, 100%);
+  border: 1px solid var(--border);
+  background: rgba(13, 21, 32, 0.92);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.login-card__title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.05;
+}
+
+.login-card__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.login-card__lede {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.login-card__allowlist {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.login-card__error {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(192, 57, 43, 0.35);
+  background: rgba(192, 57, 43, 0.12);
+  color: #ff8f84;
+  font-size: 0.88rem;
+}
+
+.login-card form {
+  margin-top: 1.25rem;
+}
+
+.login-card__foot {
+  margin: 1rem 0 0;
+  color: var(--dim);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.btn--google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #fff;
+  color: #1f1f1f;
+}
+
+.btn--google:hover {
+  background: #f3f3f3;
 }

@@ -1,3 +1,4 @@
+import { AuthStatus } from "@/components/auth-status";
 import { DeskShell } from "@/components/desk-shell";
 import { HALL_OF_FAME } from "@/lib/campaigns";
 import { SATCOM_FINISHED, SHOP_PROJECTS } from "@/lib/projects";
@@ -18,6 +19,7 @@ export default function Home() {
         </div>
         <div className="topbar__center">5Star team · complements Nest</div>
         <div className="topbar__right">
+          <AuthStatus />
           <a
             className="topbar__link"
             href="https://copress-dashboard.vercel.app/"
