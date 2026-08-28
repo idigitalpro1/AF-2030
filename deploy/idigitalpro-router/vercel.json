@@ -1,0 +1,37 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://copress-dashboard.vercel.app",
+      "permanent": false
+    },
+    {
+      "source": "/en",
+      "destination": "https://copress-dashboard.vercel.app/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/dev",
+      "destination": "https://gateway-desk.vercel.app/dev"
+    },
+    {
+      "source": "/dev/:path*",
+      "destination": "https://gateway-desk.vercel.app/dev/:path*"
+    },
+    {
+      "source": "/en/dev",
+      "destination": "https://gateway-desk.vercel.app/dev"
+    },
+    {
+      "source": "/en/dev/:path*",
+      "destination": "https://gateway-desk.vercel.app/dev/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://codex-admin-git-main-5280menu.vercel.app/:path*"
+    }
+  ]
+}
