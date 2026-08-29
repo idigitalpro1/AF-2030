@@ -30,6 +30,14 @@
       "destination": "https://gateway-desk.vercel.app/dev/:path*"
     },
     {
+      "source": "/computer-aperture-amd",
+      "destination": "https://copress-dashboard.vercel.app/computer-aperture-amd"
+    },
+    {
+      "source": "/en/computer-aperture-amd",
+      "destination": "https://copress-dashboard.vercel.app/computer-aperture-amd"
+    },
+    {
       "source": "/:path*",
       "destination": "https://codex-admin-git-main-5280menu.vercel.app/:path*"
     }
