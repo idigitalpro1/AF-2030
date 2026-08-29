@@ -6,6 +6,7 @@ import {
   type UIMessage,
 } from "ai";
 import { campaignsForPrompt } from "@/lib/campaigns";
+import { activeOpsAlerts } from "@/lib/ops-status";
 import { projectCatalogForPrompt } from "@/lib/projects";
 
 export const maxDuration = 30;

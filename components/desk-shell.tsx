@@ -3,6 +3,7 @@
 import { PushProvider } from "@/lib/push-context";
 import { ChatCenter } from "@/components/chat-center";
 import { NestBridge } from "@/components/nest-bridge";
+import { OpsStatus } from "@/components/ops-status";
 import { ProjectBoard } from "@/components/project-board";
 
 export function DeskShell() {
@@ -13,6 +14,7 @@ export function DeskShell() {
           <ProjectBoard />
         </div>
         <div className="layout__side">
+          <OpsStatus />
           <NestBridge />
           <ChatCenter />
         </div>
