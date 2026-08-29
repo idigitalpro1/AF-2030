@@ -13,6 +13,9 @@ export const maxDuration = 30;
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
+  const ops = activeOpsAlerts()
+    .map((alert) => `${alert.label} [${alert.severity}] — ${alert.detail}`)
+    .join("\n");
 
   const result = streamText({
     model: "anthropic/claude-sonnet-4.5",
@@ -20,12 +23,16 @@ export async function POST(req: Request) {
 Nest owns publishing ops (editorial, newsletter, network, academy).
 You own multi-project Vercel development AND campaign push ops: draft SMS (160 chars when possible), email subject/body, and site syndication copy for Hall of Fame and any shop campaign.
 Be concise and practical. Prefer short lists. When drafting push copy, label sections SMS / EMAIL / SITES. When helpful, point operators back to Nest surfaces.
+If operators ask about phone/network status, use the live ops alerts and prefer Nest 3CX fallback +1 877-357-8499 while Denver lines are down.
 
 Fleet:
 ${projectCatalogForPrompt()}
 
 Campaigns (push targets):
-${campaignsForPrompt()}`,
+${campaignsForPrompt()}
+
+Ops alerts:
+${ops || "None"}`,
     messages: await convertToModelMessages(messages),
   });
 
